@@ -3,6 +3,20 @@ import { useState } from 'react';
 import { Card } from './Card/Card.jsx'
 import { useEffect } from "react";
 
+// export function GetData(){
+//     const [posts, setPosts] = useState(null)
+//     const data = posts ? [...posts] : []
+//     useEffect(() => {
+//         async function getPosts() {
+//             const response = await fetch('https://dummyjson.com/products');
+//             const responceobject = await response.json();
+//             const posts = responceobject.products;
+//             setPosts(posts);
+//         }
+//         getPosts();
+//     }, []);
+//     return data;
+// }
 export function Catalog() {
     const [posts, setPosts] = useState(null)
     const data = posts ? [...posts] : []
