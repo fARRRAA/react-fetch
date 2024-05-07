@@ -1,8 +1,12 @@
 import './Card.css'
 import { Link } from 'react-router-dom'
-export function Card(props) {
+import { useState } from 'react'
+import  {itemsCounter}  from '../../../store/cartCounter'
+import {observer} from "mobx-react-lite"
 
-
+export const Card = observer((props)=>{
+    
+    const [itemsCount,setItemsCount] = useState(1)
     return (
         <>
             <div className="catalog_elem">
@@ -10,7 +14,7 @@ export function Card(props) {
                 <div className="elem_text">
                     <p className="elem_title">{props.title}</p>
                     <p className="elem_description">{props.description.substr(0, 60)}...</p>
-                    <p className="elem_rating">rating: <span>{props.rating}</span></p>
+                    <p className="element_rating">rating: <span>{props.rating}</span></p>
                     <div className="elem_prices">
                         <p className="elem_price">{props.price} $</p>
                         <p className="elem_discount">- {Math.round(props.discountPercentage)} %</p>
@@ -19,9 +23,11 @@ export function Card(props) {
                     </div>
                     <div className="elem_btns">
                         <Link to={`/catalog/catalog-elem/${props.id}`}>
-                            <button className="elem_btn">Подробнее</button>
+                            <button className="elem_btn" onClick={()=>{itemsCounter.decrement()}}>Подробнее</button>
                         </Link>
-                        <button className="add_to_cart">
+                        <button className="add_to_cart" onClick={()=>{
+                            itemsCounter.increment();
+                            }}>
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_66_4)">
                                     <path d="M9 5.5C9 5.36739 8.94732 5.24021 8.85355 5.14645C8.75979 5.05268 8.63261 5 8.5 5C8.36739 5 8.24021 5.05268 8.14645 5.14645C8.05268 5.24021 8 5.36739 8 5.5V7H6.5C6.36739 7 6.24021 7.05268 6.14645 7.14645C6.05268 7.24021 6 7.36739 6 7.5C6 7.63261 6.05268 7.75979 6.14645 7.85355C6.24021 7.94732 6.36739 8 6.5 8H8V9.5C8 9.63261 8.05268 9.75979 8.14645 9.85355C8.24021 9.94732 8.36739 10 8.5 10C8.63261 10 8.75979 9.94732 8.85355 9.85355C8.94732 9.75979 9 9.63261 9 9.5V8H10.5C10.6326 8 10.7598 7.94732 10.8536 7.85355C10.9473 7.75979 11 7.63261 11 7.5C11 7.36739 10.9473 7.24021 10.8536 7.14645C10.7598 7.05268 10.6326 7 10.5 7H9V5.5Z" fill="black" />
@@ -41,4 +47,4 @@ export function Card(props) {
         </>
 
     )
-}
+})
