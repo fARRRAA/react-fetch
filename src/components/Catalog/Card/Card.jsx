@@ -1,12 +1,9 @@
 import './Card.css'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
-import  {itemsCounter}  from '../../../store/cartCounter'
-import {observer} from "mobx-react-lite"
-
-export const Card = observer((props)=>{
-    
-    const [itemsCount,setItemsCount] = useState(1)
+// import  {itemsCounter}  from '../../../store/cartCounter'
+// import {observer} from "mobx-react-lite"
+export function Card(props){
     return (
         <>
             <div className="catalog_elem">
@@ -47,4 +44,4 @@ export const Card = observer((props)=>{
         </>
 
     )
-})
+}
