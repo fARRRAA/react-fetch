@@ -20,11 +20,12 @@ export function Catalog() {
         getPosts();
     }, []);
     const сategoryChange = (e) => {
-        e.target.value==='Всё' ? resetSelect : setSelectValue(e.target.value)
+        e.target.value==='Всё' ? resetSelect() : setSelectValue(e.target.value)
+        // console.log(e.target.value)
     };
     const textChange = (e) => {
         setInputValue(e.target.value);
-        console.log(inputValue);
+        // console.log(inputValue);
     };
     const resetSelect = () => {
         setSelectValue('');
@@ -39,7 +40,7 @@ export function Catalog() {
                             <label htmlFor="select-category">Выберите категорию:</label>
                             <select name="select-category" id="select-category" className="select" onChange={сategoryChange}>
                                 <option value="1" selected="true" disabled="disabled">Выберите категорию</option>
-                                <option value="2">Всё</option>
+                                <option value="Всё">Всё</option>
                                 {
                                     posts && сategories
                                             .map(post=>(<option>{post}</option>))
@@ -61,6 +62,7 @@ export function Catalog() {
                             posts
                                 .filter(post => (post.title.toLowerCase().includes(inputValue.toLocaleLowerCase())))
                                 .filter(post => (post.category.toLowerCase().includes(selectValue.toLocaleLowerCase())))
+                                // .filter(post => (post.category.toLowerCase().includes(selectValue.toLocaleLowerCase())))
                                 
                                 .map(post => (
                                     <Card key={post.id} id={post.id} thumbnail={post.images[0]} title={post.title}

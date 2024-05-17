@@ -1,7 +1,7 @@
 import './Search.css'
 import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom'
-import { Card } from '../../components/Catalog/Card/Card';
+import { Card } from '../Catalog/Card/Card/';
 export function Search() {
     const [inputValue, setInputValue] = useState('');
     const [posts, setPosts] = useState(null)
