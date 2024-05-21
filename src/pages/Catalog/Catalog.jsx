@@ -65,9 +65,7 @@ export function Catalog() {
                                 // .filter(post => (post.category.toLowerCase().includes(selectValue.toLocaleLowerCase())))
                                 
                                 .map(post => (
-                                    <Card key={post.id} id={post.id} thumbnail={post.images[0]} title={post.title}
-                                        description={post.description} price={post.price} discountPercentage={post.discountPercentage} brand={post.brand}
-                                        rating={post.rating} category={post.category} />
+                                    <Card key={post.id} {...post} />
                                 ))
                             : <p>..загрузка данных...</p>
                     }

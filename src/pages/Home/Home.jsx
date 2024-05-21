@@ -3,8 +3,12 @@ import { useState } from "react"
 // import { store } from '../../data/storeforslider'
 import { Card } from '../Catalog/Card/Card'
 import { useEffect } from "react";
+import { useContext } from 'react'
+import { AuthContext } from "../../store/AuthContext"
 
 export function Home() {
+    const { user, setUser } = useContext(AuthContext);
+
     const [id, setId] = useState(0)
     const [minId, setMinId] = useState(4)
     const maxId = 30;
