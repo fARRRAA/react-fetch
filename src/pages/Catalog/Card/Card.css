@@ -93,6 +93,9 @@
 .add_to_cart:hover > svg >g>path {
     fill: #414141;
 }
+.add_to_cart:hover > svg >path {
+    stroke: #414141;
+}
 .add_to_cart > svg > g>path {
     fill: white;
 }

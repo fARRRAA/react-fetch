@@ -5,7 +5,8 @@
 .home_wrapper {
     display: grid;
     grid-template-columns: repeat(3,1fr);
-
+z-index: 1;
+background-color: blanchedalmond;
 }
 .item {
     width: 500px;

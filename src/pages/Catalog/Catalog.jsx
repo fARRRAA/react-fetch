@@ -65,7 +65,7 @@ export function Catalog() {
                                 // .filter(post => (post.category.toLowerCase().includes(selectValue.toLocaleLowerCase())))
                                 
                                 .map(post => (
-                                    <Card key={post.id} {...post} />
+                                    <Card {...post}/>
                                 ))
                             : <p>..загрузка данных...</p>
                     }
