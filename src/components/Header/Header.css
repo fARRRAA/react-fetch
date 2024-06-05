@@ -20,6 +20,9 @@
     font-weight: 400;
     color: #222;
 }
+.icons {
+    position: relative;
+}
 .icons > svg {
     width: 30px;
     height: 30px;
@@ -126,4 +129,44 @@ nav {
     opacity: 0;
     overflow: hidden;
     height: 0;
+}
+
+.favs_list {
+    transition: .3s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+.favs_list.hidden {
+    opacity: 0;
+    overflow: hidden;
+    transform: translateY(-50px);
+    max-height: 0;
+    max-width: 0;
+}
+.favs_list.active {
+    opacity: 1;
+    transform: translateY(0px);
+    box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 13px 27px -5px rgba(50, 50, 93, 0.25);
+    background: #fff;
+    position: absolute;
+    z-index: 111;
+    max-height: auto;
+    max-width: auto;
+    border-radius: 15px;
+    padding: 25px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.favs_list-title {
+    font-size: 18px;
+    font-weight: 400;
+}
+.fav_list-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 20px;
+}
+.fav_list-text > button {
+    margin-bottom: 4px;
 }
